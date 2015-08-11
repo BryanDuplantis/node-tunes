@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= title %> | Artist | New Artist</title>
+  <title><%= title %> | Add Artist</title>
 </head>
 <body>
   <h1>NodeTunes</h1>
   <a href="/artists">Cancel</a>
-  <form action="/artists/add" method="POST">
-    Artist: <input name="name" type="text" placeholder="Artist">
+  <form action="/artists/new" method="POST">
+    Artist: <input name="artist" type="text" placeholder="Artist">
     Genre:
     <select name="genre">
       <option value="Rock">Rock</option>
@@ -19,7 +19,9 @@
       <option value="Jazz">Jazz</option>
       <option value="Blues">Blues</option>
     </select>
-      <textarea name="Bio" form="usrform">Enter bio here...</textarea>
+    Album: <input name="album" type="text" placeholder="Album">
+    Biography:
+      <textarea name="bio" form="usrform">Enter bio here...</textarea>
       <input type="submit" value="Add artist to list">
   </form>
 </body>

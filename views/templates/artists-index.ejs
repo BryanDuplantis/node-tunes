@@ -5,15 +5,25 @@
 </head>
 <body>
   <h1>Artists</h1>
-  <a href="/artists/new">New Artist</a>
+  <a href="/artists/new/">New Artist</a>
   <table>
     <thead>
       <tr>
         <th>Artist</th>
         <th>Genre</th>
+        <th>Album</th>
         <th>Bio</th>
       </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+      <% artists.forEach(function (artist) { %>
+        <tr>
+          <td><%= artist.artist %></td>
+          <td><%= artist.genre %></td>
+          <td><%= artist.album %></td>
+          <td><%= artist.bio %></td>
+        </tr>
+      <% }); %>
+    </tbody>
 </body>
 </html>

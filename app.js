@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser = require('body-parser')
 
 var artists = require('./routes/artists');
 
@@ -8,7 +9,11 @@ app.set('view engine', 'ejs');
 
 app.locals.title = 'NodeTunes';
 
+app.use(bodyParser.urlencoded({extended: true}));
+
 app.use('/artists', artists);
+
+require('./lib/mongodb');
 
 app.use(function (req, res) {
   res.status(403).send('Unauthorized!');
