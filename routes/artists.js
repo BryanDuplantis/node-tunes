@@ -31,6 +31,13 @@ router.post('/new', function (req, res) {
   });
 });
 
+router.post('/delete/:id', function (req, res) {
+  var collection = global.db.collection('artists');
+  collection.remove({_id: ObjectID(req.params.id)}, function() {
+    res.redirect('/artists')
+  })
+});
+
 module.exports = router;
 
 // router.get('/', function (req, res) {
