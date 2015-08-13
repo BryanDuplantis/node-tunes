@@ -12,6 +12,7 @@ app.locals.title = 'NodeTunes';
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/artists', artists);
+app.use(express.static('www'));
 
 require('./lib/mongodb');
 
