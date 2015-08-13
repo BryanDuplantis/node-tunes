@@ -39,15 +39,3 @@ router.post('/delete/:id', function (req, res) {
 });
 
 module.exports = router;
-
-// router.get('/', function (req, res) {
-//     res.render('templates/artists-index');
-// });
-
-// router.post('/artists', function (req, res) {
-//   var collection = global.db.collection('node-tunes');
-
-//   collection.save(req.body, function () {
-//       res.redirect('/artists/add')
-//   });
-// });

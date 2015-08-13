@@ -4,6 +4,7 @@
   <title><%= title %> | Add Artist</title>
   <%- include('stylesheets') %>
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
   <h1><%= title %> | Add Artist</h1>
@@ -21,16 +22,19 @@
       <option value="Jazz">Jazz</option>
       <option value="Blues">Blues</option>
     </select>
-    Biography:
-      <textarea name="bio" form="usrform">Enter bio here...</textarea>
-      <input type="submit" value="Add Artist To List">
+    <!-- Biography:
+      <textarea name="bio" form="usrform">Enter bio here...</textarea> -->
+      <button type="submit" class="btn btn-info btn_search">Add Artist To List</button>
   </form>
     <h1><%= title %> | Search Artists</h1>
-    <form action="/artists/search" method="GET">
-    Artist: <input name="artist" type="text" placeholder="Artist Name">
-    <input type="submit" value="Search">
-    </form>
-    <div></div>
+      <form action="">
+      <div class="form-group">
+          <label for="name">Artist Name:</label>
+          <input name="name" type="text">
+          <button type="submit" class="btn btn-info btn_search">Search</button>
+        </div>
+      </form>
+    <div id="resultarea"></div>
     <%- include('javascripts') %>
 </body>
 </html>

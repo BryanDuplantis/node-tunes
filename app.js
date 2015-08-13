@@ -1,21 +1,25 @@
+//npm requires
 var express = require('express');
 var bodyParser = require('body-parser')
-
-var artists = require('./routes/artists');
-
 var app = express();
-
 app.set('view engine', 'ejs');
+
+//require routes
+var artists = require('./routes/artists');
+// var albums = require('/routes/albums');
 
 app.locals.title = 'NodeTunes';
 
-app.use(bodyParser.urlencoded({extended: true}));
-
-app.use('/artists', artists);
-app.use(express.static('www'));
-
 require('./lib/mongodb');
 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static('www'));
+
+//routes
+app.use('/artists', artists);
+// app.use('/albums', albums);
+
+//errors
 app.use(function (req, res) {
   res.status(403).send('Unauthorized!');
 });
