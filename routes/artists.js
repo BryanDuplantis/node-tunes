@@ -2,6 +2,8 @@ var express = require('express');
 var ObjectID = require('mongodb').ObjectID;
 var router = express.Router();
 
+// Gets all artists
+
 router.get('/', function (req, res) {
   var collection = global.db.collection('artists');
 
@@ -23,6 +25,8 @@ router.get('/new', function (req, res) {
   res.render('templates/artists-new');
 });
 
+// Saves artists to database
+
 router.post('/new', function (req, res) {
   var collection = global.db.collection('artists');
 
@@ -30,6 +34,16 @@ router.post('/new', function (req, res) {
     res.redirect('/artists');
   });
 });
+
+// Searches for artists in database
+
+router.get('/new', function (req, res) {
+      db.collection('artists').find({artist: req.query.artist}).toArray(function (err, artist) {
+      res.render('templates/artists-index', {artists: artist});
+  });
+})
+
+// Deletes artists from database/page
 
 router.post('/delete/:id', function (req, res) {
   var collection = global.db.collection('artists');
